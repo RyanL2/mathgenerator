@@ -1,0 +1,22 @@
+viewRendererConfiguration:
+  mustache:
+    cache: false
+
+projectName: MathGenerator
+database:
+  driverClass: org.postgresql.Driver
+  user: ryanl2
+  password: Cin-n-7DJQV7UhHk3NBFhQ
+  url: jdbc:postgresql://free-tier9.gcp-us-west2.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&options=--cluster%3Dclusterrylei-154
+  properties:
+      charSet: UTF-8
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      maxWaitForConnection: 1s
+      # the SQL query to run when validating a connection's liveness
+      validationQuery: "/* MyApplication Health Check */ SELECT 1"
+      # the minimum number of connections to keep open
+      minSize: 8
+      # the maximum number of connections to keep open
+      maxSize: 32
+      # whether or not idle connections should be validated
+      checkConnectionWhileIdle: false

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Grade </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+<div>Hello Worlds</div>
+<div>
+    Your Grade:
+    {{#question2}}
+        {{#value}}
+            <div style="background-color:{{#questionColour}}{{result}}{{/questionColour}}; font-size:20px" >
+                Question {{key}}: {{num1}} {{operator}} {{num2}} = ?
+                user answer: {{user_input}}
+                correct answer: {{answer}}
+                {{#questionIcon}}{{result}}{{/questionIcon}}
+            </div>
+        {{/value}}
+    {{/question2}}
+
+    Total score: {{score}}
+</div>
+</body>
+</html>

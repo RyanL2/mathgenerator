@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+
+<div>
+    <form action=/grade method='post'>Please input the answer:<br>
+    {{#question2}}
+        {{#value}}
+        <div style="background-color:{{#bgColour}}{{key}}{{/bgColour}}">
+            {{num1}} {{operator}} {{num2}} =
+            <input type='text' name='value_{{key}}'>
+            {{>questionHidden }}
+        </div>
+        {{/value}}
+    {{/question2}}
+    <input type='submit' value='submit'>
+    </form>
+
+
+    {{#user}}
+        User answer: {{user}}
+    {{/user}}
+    {{#answer}}
+        Correct answer: {{answer}}
+    {{/answer}}
+    {{#message}}
+        {{message}}
+    {{/message}}
+    </div>
+</body>
+</html>
