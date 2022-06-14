@@ -12,9 +12,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Path("/login")
-public class loginController{
+public class LoginController {
     private UserDAO userDAO;
-    public loginController(UserDAO userDAO){
+    public LoginController(UserDAO userDAO){
         this.userDAO = userDAO;
     }
     @GET

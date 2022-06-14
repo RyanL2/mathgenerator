@@ -31,7 +31,7 @@ public class ApplicationConfiguration extends Configuration {
     }
 
     @JsonProperty("database")
-    public void setDataFactory(DataSourceFactory database){
+    public void setDataSourceFactory(DataSourceFactory database){
         this.database = database;
     }
 }

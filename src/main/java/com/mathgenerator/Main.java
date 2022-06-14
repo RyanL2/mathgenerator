@@ -3,12 +3,10 @@ package com.mathgenerator;
 import com.mathgenerator.controller.GuessGameController;
 import com.mathgenerator.controller.MathQuestionController;
 import com.mathgenerator.controller.QuestionGradeController;
-import com.mathgenerator.controller.loginController;
+import com.mathgenerator.controller.LoginController;
 import com.mathgenerator.dao.UserDAO;
 import com.mathgenerator.module.User;
 import io.dropwizard.Application;
-import io.dropwizard.Bundle;
-import io.dropwizard.Configuration;
 import io.dropwizard.db.PooledDataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
@@ -30,13 +28,14 @@ public class Main extends Application<ApplicationConfiguration> {
     }
     @Override
     public void run(ApplicationConfiguration configuration, Environment environment) throws Exception {
-        environment.jersey().register(new loginController(new UserDAO(hibernateBundle.getSessionFactory())));
+        environment.jersey().register(new LoginController(new UserDAO(hibernateBundle.getSessionFactory())));
         environment.jersey().register(new GuessGameController());
         environment.jersey().register(new MathQuestionController());
         environment.jersey().register(new QuestionGradeController());
     }
     @Override
     public void initialize(Bootstrap<ApplicationConfiguration> bootstrap){
+        bootstrap.addBundle(hibernateBundle);
         bootstrap.addBundle(new ViewBundle<ApplicationConfiguration>(){
             @Override
             public Map<String, Map<String,String>> getViewConfiguration(ApplicationConfiguration configuration){

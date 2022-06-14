@@ -1,6 +1,7 @@
 
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 group 'org.mathgenerator'
@@ -30,4 +31,11 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+shadowJar {
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.SF'
+    manifest {
+        attributes 'Main-Class': 'com.mathgenerator.Main'
+    }
 }

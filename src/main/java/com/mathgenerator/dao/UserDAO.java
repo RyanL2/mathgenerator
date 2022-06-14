@@ -8,7 +8,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UserDAO extends AbstractDAO<User> {
-    public UserDAO(SessionFactory sessionFactory){
+
+    /**
+     * Creates a new DAO with a given session provider.
+     *
+     * @param sessionFactory a session provider
+     */
+    public UserDAO(SessionFactory sessionFactory) {
         super(sessionFactory);
     }
     public Optional<User> findById(UUID id){
